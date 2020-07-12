@@ -1,0 +1,47 @@
+verificacion de requerimientos para levantar laravel 
+fuente: https://laravel.com/docs/7.x/installation#server-requirements
+Verificar :
+	Lo verificas con  php info si no lo tienes creado 
+	tienes que crearlo en tu apache o servidor segun tu ruta del servidor example: /var/www/html/info.php
+	creas una archivo php example info.php y agregas ese codigo
+	<?php  phpinfo(); ?>
+	Windows
+	xamp: https://www.apachefriends.org/es/index.html
+	wamp: https://www.wampserver.com/en/
+	laragon: https://laragon.org/download/index.html
+
+	Debian / Ubuntu
+	si no tienes alguna extension lo descargas y reinias el apache
+	en mi caso fue "BCMath PHP Extension"
+	sudo apt install php7.2-bcmath
+	ubuntu and php without version specification
+	sudo apt install php-bcmath
+	fuente: https://stackoverflow.com/questions/3400362/how-to-install-bcmath-module
+	luego reinicias
+	reiniciar apache : $ sudo systemctl restart apache2.service
+	fuente : https://www.cyberciti.biz/faq/ubuntu-linux-start-restart-stop-apache-web-server/
+
+	descargar composer Ubunto Debian
+	https://www.programadornovato.com/instalar-composer-en-ubuntu-18-04-%f0%9f%93%a6/
+	composer create-project --prefer-dist laravel/laravel blog
+	Debian /Ubuntu
+	error abrir en permisos en abrir example localhost/tuproyectolarabel/public
+	solucion en tu carpeta de tu proyecto
+	sudo chown -R $USER:www-data ./storage
+	find ./storage -type d -exec chmod 775 {} \;
+	find ./storage -type f -exec chmod 664 {} \;
+	sudo chown $USER:www-data ./bootstrap/cache -R
+        find ./bootstrap/cache -type d -exec chmod 775 {} \;
+	fuente: https://stackoverflow.com/q/32849795
+	arrancar el proyecto con puerto->  php -S localhost:8000 -t public
+	solucion
+	fuente https://es.stackoverflow.com/a/269243
+
+
+
+
+solucion a problemas con permisos en la ruta de apache
+https://blog.ahierro.es/archivos-y-permisos-de-usuario-en-apache-y-linux/
+
+solucion erro archivos cache composer en linux 
+https://stackoverflow.com/a/37200737
